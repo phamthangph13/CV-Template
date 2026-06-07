@@ -3,78 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Ứng Tuyển Người Yêu</title>
+    <title>Phạm Như Thắng — Lá Thư Từ Trái Tim</title>
+    <meta name="description" content="Một bức thư nhỏ gửi đến em, từ trái tim anh">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/TextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <audio id="backgroundMusic" src="sound.mp3" preload="auto"></audio>
 </head>
 <body>
-    <div class="container">
-        <div class="heart"></div>
-        <div class="profile">
-            <img src="img2.png" alt="Ảnh của bạn" class="profile-img">
-            <h1 class="name">Phạm Như Thắng</h1>
-            <p class="title">Ứng Viên Người Yêu Tương Lai</p>
-        </div>
-        
-        <div class="section">
-            <h2>Thông tin cá nhân</h2>
-            <ul class="info-list">
-                <li>🎂 Tuổi: 20 tuổi (13/01/2005)</li>
-                <li>♑ Cung hoàng đạo: Ma Kết</li>
-                <li>📍 Địa chỉ: 284 Quang Trung Hà Đông, Hà Nội</li>
-                <li>💝 Tình trạng: Sắp có một tình yêu</li>
-            </ul>
-        </div>
 
-        <div class="section">
-            <h2>Điểm mạnh của tôi</h2>
-            <ul class="strength-list">
-                <li>❤️ Chung thủy</li>
-                <li>😊 Hài hước</li>
-                <li>🎵 Biết quan tâm</li>
-                <li>🌟 Lãng mạn</li>
-                <li>😄 Tính cách hay hay</li>
-            </ul>
-        </div>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
 
-        <div class="section">
-            <h2>Cam kết</h2>
-            <div class="commitment">
-                <p>✨ Sẽ yêu thương và chăm sóc bạn hết mình</p>
-                <p>✨ Luôn lắng nghe và chia sẻ</p>
-                <p>✨ Cùng nhau xây dựng tương lai</p>
+    <!-- Opening Screen — Modern Glass Card -->
+    <div class="opening-screen" id="openingScreen">
+        <!-- Animated background orbs -->
+        <div class="opening-orb orb-1"></div>
+        <div class="opening-orb orb-2"></div>
+        <div class="opening-orb orb-3"></div>
+
+        <div class="opening-card" id="openingCard">
+            <!-- Spinning rings -->
+            <div class="opening-rings">
+                <div class="ring ring-outer"></div>
+                <div class="ring ring-middle"></div>
+                <div class="ring ring-inner"></div>
             </div>
+            <!-- Heart icon in center -->
+            <div class="opening-heart-icon">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#heartGrad)"/>
+                    <defs>
+                        <linearGradient id="heartGrad" x1="2" y1="3" x2="22" y2="21">
+                            <stop offset="0%" stop-color="#f472b6"/>
+                            <stop offset="100%" stop-color="#a78bfa"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h2 class="opening-title">Có một lá thư<br>đang chờ em...</h2>
+            <p class="opening-hint">chạm để mở ♡</p>
+            <!-- Ripple effect on tap -->
+            <div class="opening-ripple" id="openingRipple"></div>
         </div>
-
-        <div class="section">
-            <h2>Ngôn ngữ</h2>
-            <ul class="language-list">
-                <li>🇷🇺 Tiếng Nga</li>
-                <li>🇩🇪 Tiếng Đức</li>
-                <li>🇬🇧 Tiếng Anh</li>
-                <li>🇻🇳 Tiếng Việt</li>
-                <li>🇨🇳 Tiếng Trung</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Thành tích & Chứng chỉ</h2>
-            <ul class="achievement-list">
-                <li>🥈 Giải Bạc Tin học khu vực (2023)</li>
-                <li>🥇 Giải Nhất Tin học thành phố Vinh, Nghệ An (2019)</li>
-                <li>🥇 Giải Nhất Tin học trẻ cấp tỉnh (2020)</li>
-                <li>🏆 Giải Khuyến khích Olympic Tin học Quốc gia</li>
-                <li>🌏 Giải Khuyến khích Asia Hanoi ICPC</li>
-                <li>🥇 Giải Nhất Nghiên cứu Khoa học cấp tỉnh (2023)</li>
-                <li>🥉 Giải Ba Nghiên cứu Khoa học cấp tỉnh (2022)</li>
-                <li>🏆 Giải Khuyến khích Nghiên cứu Khoa học cấp Bộ (2022)</li>
-                <li>🏆 Và còn nhiều thành tích khác...</li>
-            </ul>
-        </div>
-
-        <button class="apply-btn">Ứng Tuyển Ngay</button>
     </div>
+
+    <!-- Slide Container -->
+    <div class="slides-wrapper" id="slidesWrapper">
+
+        <!-- Navigation Dots -->
+        <div class="nav-dots" id="navDots">
+            <button class="nav-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="nav-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
+            <button class="nav-dot" data-slide="3" aria-label="Slide 4"></button>
+            <button class="nav-dot" data-slide="4" aria-label="Slide 5"></button>
+            <button class="nav-dot" data-slide="5" aria-label="Slide 6"></button>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow nav-prev" id="navPrev" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="nav-arrow nav-next" id="navNext" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+
+        <!-- Slide 0: Intro -->
+        <section class="slide slide-intro" id="slide-0">
+            <div class="slide-content">
+                <div class="intro-sparkle">✨</div>
+                <h1 class="intro-title">Lá Thư Từ Trái Tim</h1>
+                <p class="intro-subtitle">— dành riêng cho em —</p>
+                <div class="intro-divider">
+                    <span>♡</span>
+                </div>
+                <p class="intro-poem">
+                    "Giữa muôn ngàn người trên thế giới này,<br>
+                    anh chỉ muốn viết một lá thư nhỏ,<br>
+                    gửi đến đúng một người —<br>
+                    <em>là em.</em>"
+                </p>
+                <div class="scroll-hint">
+                    <span>vuốt để tiếp tục</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 1: Profile -->
+        <section class="slide slide-profile" id="slide-1">
+            <div class="slide-content">
+                <div class="profile-card">
+                    <div class="profile-img-wrapper">
+                        <img src="img2.png" alt="Phạm Như Thắng" class="profile-img" id="profileImg">
+                        <div class="profile-ring"></div>
+                        <div class="profile-ring ring-2"></div>
+                    </div>
+                    <h2 class="profile-name">Phạm Như Thắng</h2>
+                    <p class="profile-tagline">Người viết thư này</p>
+                    <div class="profile-quote">
+                        "Anh không hoàn hảo, nhưng anh sẽ dành trọn vẹn nhất cho em."
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-icon">🎂</span>
+                        <div class="info-text">
+                            <span class="info-label">Sinh nhật</span>
+                            <span class="info-value">13 tháng 01, 2005</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">♑</span>
+                        <div class="info-text">
+                            <span class="info-label">Cung hoàng đạo</span>
+                            <span class="info-value">Ma Kết — kiên định và chung thuỷ</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">💝</span>
+                        <div class="info-text">
+                            <span class="info-label">Tình trạng</span>
+                            <span class="info-value">Đang chờ đợi một người...</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🎧</span>
+                        <div class="info-text">
+                            <span class="info-label">Sở thích</span>
+                            <span class="info-value">Nghe nhạc, coding, và nhắn tin cùng em mỗi tối...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: Strengths -->
+        <section class="slide slide-strengths" id="slide-2">
+            <div class="slide-content">
+                <h2 class="section-title">
+                    <span class="title-icon">🌸</span>
+                    Anh là người như thế nào?
+                </h2>
+                <p class="section-poem">
+                    "Anh không biết nói lời hoa mỹ,<br>
+                    nhưng anh biết cách yêu thương bằng hành động."
+                </p>
+                <div class="strengths-grid">
+                    <div class="strength-card" data-index="0">
+                        <div class="strength-emoji">❤️</div>
+                        <h3>Chung thuỷ</h3>
+                        <p>Khi đã yêu, anh chỉ nhìn thấy một người. Trái tim anh không có chỗ cho sự phản bội.</p>
+                    </div>
+                    <div class="strength-card" data-index="1">
+                        <div class="strength-emoji">😊</div>
+                        <h3>Hài hước</h3>
+                        <p>Anh sẽ là người khiến em cười mỗi ngày, vì nụ cười em là điều đẹp nhất anh muốn giữ gìn.</p>
+                    </div>
+                    <div class="strength-card" data-index="2">
+                        <div class="strength-emoji">🧸</div>
+                        <h3>Quan tâm</h3>
+                        <p>Từng chi tiết nhỏ của em, anh đều ghi nhớ. Vì yêu là để ý từng điều nhỏ bé nhất.</p>
+                    </div>
+                    <div class="strength-card" data-index="3">
+                        <div class="strength-emoji">🌟</div>
+                        <h3>Lãng mạn</h3>
+                        <p>Anh tin rằng tình yêu cần những bất ngờ, và anh sẽ không ngừng tạo nên chúng cho em.</p>
+                    </div>
+                    <div class="strength-card" data-index="4">
+                        <div class="strength-emoji">🌈</div>
+                        <h3>Chân thành</h3>
+                        <p>Anh không giỏi diễn kịch, nhưng mỗi lời anh nói đều xuất phát từ đáy lòng.</p>
+                    </div>
+                    <div class="strength-card" data-index="5">
+                        <div class="strength-emoji">🐱</div>
+                        <h3>Yêu động vật</h3>
+                        <p>Anh cực kỳ yêu động vật, đặc biệt là đang nuôi một bé mèo siêu đáng yêu tên là Gemini.</p>
+                    </div>
+                    <div class="strength-card" data-index="6">
+                        <div class="strength-emoji">🍳</div>
+                        <h3>Biết nấu ăn</h3>
+                        <p>Anh sẵn sàng vào bếp chuẩn bị những món ngon chiều lòng khẩu vị của em mỗi ngày.</p>
+                    </div>
+                    <div class="strength-card" data-index="7">
+                        <div class="strength-emoji">🌱</div>
+                        <h3>Chiều chuộng</h3>
+                        <p>Luôn kiên nhẫn lắng nghe em chia sẻ, nhường nhịn và dỗ dành mỗi lúc em dỗi hờn.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Fears -->
+        <section class="slide slide-fears" id="slide-3">
+            <div class="slide-content">
+                <h2 class="section-title">
+                    <span class="title-icon">🥺</span>
+                    Những điều anh sợ nhất
+                </h2>
+                <p class="section-poem">
+                    "Thế gian bao thứ đáng sợ,<br>
+                    nhưng anh gom lại chỉ có bấy nhiêu thôi..."
+                </p>
+                <div class="fears-grid">
+                    <div class="fear-card" data-index="0">
+                        <div class="fear-emoji">🕷️</div>
+                        <h3>Sợ côn trùng</h3>
+                        <p>Nhìn mấy bé nhiều chân hay sâu bọ là anh tự dưng nổi da gà... Cứu anh với nhé!</p>
+                    </div>
+                    <div class="fear-card" data-index="1">
+                        <div class="fear-emoji">👻</div>
+                        <h3>Sợ ma</h3>
+                        <p>Tối ngủ thỉnh thoảng cứ tưởng tượng có bóng trắng đi qua... cần em ôm thật chặt.</p>
+                    </div>
+                    <div class="fear-card" data-index="2">
+                        <div class="fear-emoji">👤</div>
+                        <h3>Sợ cô đơn</h3>
+                        <p>Anh sợ cảm giác ăn cơm một mình, đi dạo một mình... Chỉ muốn làm tất cả cùng em.</p>
+                    </div>
+                </div>
+
+                <!-- Special Fear: Sợ em buồn -->
+                <div class="fear-special-card">
+                    <div class="special-glow"></div>
+                    <div class="special-emoji-wrapper">
+                        <span class="special-emoji">🥺</span>
+                        <span class="special-heart">💖</span>
+                    </div>
+                    <div class="special-content">
+                        <h3>Nhưng nỗi sợ lớn nhất là... SỢ EM BUỒN!</h3>
+                        <p>Đây là điều duy nhất có thể khiến trái tim anh tan vỡ. Nụ cười của em là cả thế giới đối với anh, nên anh hứa sẽ làm mọi cách để giữ cho em luôn hạnh phúc và mỉm cười mỗi ngày.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Languages -->
+        <section class="slide slide-languages" id="slide-4">
+            <div class="slide-content">
+                <h2 class="section-title">
+                    <span class="title-icon">🌍</span>
+                    Ngôn ngữ anh biết
+                </h2>
+                <p class="section-poem">
+                    "Dù nói được bao nhiêu thứ tiếng,<br>
+                    anh vẫn muốn dùng ngôn ngữ trái tim<br>
+                    để nói với em rằng: <em>Anh yêu em.</em>"
+                </p>
+                <div class="languages-showcase">
+                    <div class="lang-card" data-index="0">
+                        <span class="lang-flag">🇻🇳</span>
+                        <span class="lang-name">Tiếng Việt</span>
+                        <div class="lang-bar"><div class="lang-fill" data-width="100"></div></div>
+                        <span class="lang-love">Ngôn ngữ của trái tim</span>
+                    </div>
+                    <div class="lang-card" data-index="1">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">Tiếng Anh</span>
+                        <div class="lang-bar"><div class="lang-fill" data-width="85"></div></div>
+                        <span class="lang-love">I love you ♡</span>
+                    </div>
+                    <div class="lang-card" data-index="2">
+                        <span class="lang-flag">🇷🇺</span>
+                        <span class="lang-name">Tiếng Nga</span>
+                        <div class="lang-bar"><div class="lang-fill" data-width="70"></div></div>
+                        <span class="lang-love">Я тебя люблю ♡</span>
+                    </div>
+                    <div class="lang-card" data-index="3">
+                        <span class="lang-flag">🇩🇪</span>
+                        <span class="lang-name">Tiếng Đức</span>
+                        <div class="lang-bar"><div class="lang-fill" data-width="65"></div></div>
+                        <span class="lang-love">Ich liebe dich ♡</span>
+                    </div>
+                    <div class="lang-card" data-index="4">
+                        <span class="lang-flag">🇨🇳</span>
+                        <span class="lang-name">Tiếng Trung</span>
+                        <div class="lang-bar"><div class="lang-fill" data-width="60"></div></div>
+                        <span class="lang-love">我爱你 ♡</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Commitments + CTA -->
+        <section class="slide slide-commitments" id="slide-5">
+            <div class="slide-content">
+                <h2 class="section-title">
+                    <span class="title-icon">💍</span>
+                    Lời hứa với em
+                </h2>
+                <p class="section-poem">
+                    "Anh không hứa cho em cả thế giới,<br>
+                    nhưng anh hứa sẽ luôn ở bên em<br>
+                    trong thế giới của riêng chúng ta."
+                </p>
+                <div class="commitments-list">
+                    <div class="commit-item" data-index="0">
+                        <div class="commit-number">01</div>
+                        <div class="commit-content">
+                            <h3>Yêu thương vô điều kiện</h3>
+                            <p>Dù ngày nắng hay mưa, dù em vui hay buồn — anh sẽ luôn ở đây, yêu em bằng tất cả những gì anh có.</p>
+                        </div>
+                    </div>
+                    <div class="commit-item" data-index="1">
+                        <div class="commit-number">02</div>
+                        <div class="commit-content">
+                            <h3>Luôn lắng nghe & thấu hiểu</h3>
+                            <p>Anh sẽ là nơi em có thể kể mọi điều, không phán xét, chỉ ôm em vào lòng và nói: "Có anh đây rồi."</p>
+                        </div>
+                    </div>
+                    <div class="commit-item" data-index="2">
+                        <div class="commit-number">03</div>
+                        <div class="commit-content">
+                            <h3>Cùng nhau xây dựng tương lai</h3>
+                            <p>Từng viên gạch nhỏ, từng giấc mơ lớn — anh muốn cùng em chạm tay vào mọi điều tuyệt vời nhất phía trước.</p>
+                        </div>
+                    </div>
+                    <div class="commit-item" data-index="3">
+                        <div class="commit-number">04</div>
+                        <div class="commit-content">
+                            <h3>Giữ gìn nụ cười em mãi</h3>
+                            <p>Nếu trên đời có một sứ mệnh nào đáng để anh theo đuổi cả đời, thì đó chính là giữ cho em luôn hạnh phúc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section moved here -->
+                <div class="cta-section">
+                    <p class="cta-poem">
+                        "Nếu em đã đọc đến đây,<br>
+                        thì có lẽ trái tim em cũng đang mỉm cười...<br>
+                        Vậy thì, cho anh một cơ hội nhé?"
+                    </p>
+                    <div class="cta-buttons" id="ctaButtons">
+                        <button class="cta-btn cta-yes" id="btnYes">
+                            <span class="cta-icon">💕</span>
+                            Đồng ý
+                        </button>
+                        <button class="cta-btn cta-super-yes" id="btnSuperYes">
+                            <span class="cta-icon">💖</span>
+                            Rất đồng ý!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Persistent Lyrics Bar (fixed at bottom, visible across all slides) -->
+    <div class="lyrics-bar" id="lyricsBar">
+        <div class="lyrics-bar-inner">
+            <span class="lyrics-note">♪</span>
+            <div class="lyrics-words" id="lyricsWords"></div>
+            <span class="lyrics-note">♪</span>
+        </div>
+        <div class="lyrics-progress">
+            <div class="lyrics-progress-bar" id="lyricsProgressBar"></div>
+        </div>
+    </div>
+
+
+
     <script src="as.js"></script>
 </body>
 </html>
