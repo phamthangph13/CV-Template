@@ -600,15 +600,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const diffY = touchStartY - e.changedTouches[0].clientY;
         const diffX = touchStartX - e.changedTouches[0].clientX;
 
+        // Only transition slides on vertical swipe (swipe up/down)
+        // This avoids conflict with inner horizontal card scrolling carousels on mobile
         if (Math.abs(diffY) > Math.abs(diffX)) {
             if (Math.abs(diffY) > 60) {
                 if (diffY > 0 && currentSlide < slides.length - 1) showSlide(currentSlide + 1);
                 else if (diffY < 0 && currentSlide > 0) showSlide(currentSlide - 1);
-            }
-        } else {
-            if (Math.abs(diffX) > 60) {
-                if (diffX > 0 && currentSlide < slides.length - 1) showSlide(currentSlide + 1);
-                else if (diffX < 0 && currentSlide > 0) showSlide(currentSlide - 1);
             }
         }
     }, { passive: true });

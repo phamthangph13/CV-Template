@@ -1124,11 +1124,60 @@ body {
     .nav-next { right: 36px; }
 
     .strengths-grid {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 12px 16px;
+        scroll-padding: 16px;
+        scrollbar-width: none;
+    }
+    
+    .strengths-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .strength-card {
+        flex: 0 0 75%;
+        scroll-snap-align: center;
     }
 
     .fears-grid {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 12px 16px;
+        scroll-padding: 16px;
+        scrollbar-width: none;
+    }
+    
+    .fears-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .fear-card {
+        flex: 0 0 75%;
+        scroll-snap-align: center;
+    }
+
+    .commitments-list {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding: 12px 16px;
+        scroll-padding: 16px;
+        scrollbar-width: none;
+    }
+    
+    .commitments-list::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .commit-item {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
     }
 
     .profile-img-wrapper {
@@ -1178,12 +1227,16 @@ body {
         padding: 20px 12px 12px;
     }
 
-    .strengths-grid {
-        grid-template-columns: 1fr;
+    .strength-card {
+        flex: 0 0 85%;
     }
 
-    .fears-grid {
-        grid-template-columns: 1fr;
+    .fear-card {
+        flex: 0 0 85%;
+    }
+
+    .commit-item {
+        flex: 0 0 90%;
     }
 
     .strength-card {
